@@ -28,7 +28,7 @@ class StudentException(Exception):
 class School(db.Model, SerializerMixin):
     __tablename__ = 'schools'
 
-    #school identification and administration data
+    #school identification and administration attributes
     id = db.Column(db.Integer, primary_key=True)
     NCESSCH = db.Column(db.Integer, unique=True)
     OBJECTID = db.Column(db.Integer, unique=True) # this will be the primary key on the enrollment table, Ben recommends not having in School data and only have for auditing enrollment table
@@ -37,7 +37,7 @@ class School(db.Model, SerializerMixin):
     ST_LEAID = db.Column(db.String)
     LEA_NAME = db.Column(db.String)
 
-    #school location and contact data
+    #school location and contact attributes
     # STABR = db.Column(db.String) # State Abbreviation e.g. NY
     LSTREET1 = db.Column(db.String)
     LZIP = db.Column(db.String) # Ben says zip codes are always strings "are you doing math on it? if no, then probably a string"
@@ -48,7 +48,7 @@ class School(db.Model, SerializerMixin):
     LONCOD = db.Column(db.Float) #Longitude
     PHONE = db.Column(db.String)
 
-    #other school data, revisit grouping
+    #other school attributes, revisit grouping
     CHARTER_TEXT = db.Column(db.Integer) # 1 is Yes, 2 is No
     VIRTUAL = db.Column(db.String)
     GSLO = db.Column(db.String) # Grade served low 
@@ -59,14 +59,53 @@ class School(db.Model, SerializerMixin):
     SY_STATUS_TEXT = db.Column(db.String) # use in lieu of Status above because this has text/description and some are not coded to numbers...
     ULOCALE = db.Column(db.String)
 
-
-
-
-
+    #relationships
     applications = db.relationship('Application', back_populates="school")
     # user = db.relationship('User', back_populates="school")
-    #TBD if serialize rules required for this...
     serialize_rules = ['-applications'] 
+
+class Enrollment(db.Model, SerializerMixin):
+    __tablename__ = 'annual_enrollment'
+
+    #general attributes
+    id = db.Column(db.Integer, primary_key=True)
+    school_id = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True)
+    OBJECTID = db.Column(db.Integer, unique=True) # Government's unique ID...
+    SURVYEAR = db.Column(db.String, unique=True) # Survey Year, e.g. 2019-2020
+
+    #enrollment attributes, free and reduced lunch
+    TOTFRL = db.Column(db.Integer) # Total Free and Reduced Lunch
+    FRELCH = db.Column(db.Integer) # Free lunch
+    REDLCH = db.Column(db.Integer) # Reduced lunch
+    
+    #enrollment attributes, student count by grade
+    PK = db.Column(db.Integer)
+    KG = db.Column(db.Integer)
+    G01 = db.Column(db.Integer)
+    G02 = db.Column(db.Integer)
+    G03 = db.Column(db.Integer)
+    G04 = db.Column(db.Integer)
+    G05 = db.Column(db.Integer)
+    G06 = db.Column(db.Integer)
+    G07 = db.Column(db.Integer)
+    G08 = db.Column(db.Integer)
+    G09 = db.Column(db.Integer)
+    G10 = db.Column(db.Integer)
+    G11 = db.Column(db.Integer)
+    G12 = db.Column(db.Integer)
+    G13 = db.Column(db.Integer)
+    
+    #other enrollment attributes
+    TOTMENROL = db.Column(db.Integer)
+    TOTFENROL = db.Column(db.Integer)
+    TOTAL = db.Column(db.Integer)
+    FTE = db.Column(db.Float)
+    STUTERATIO = db.Column(db.Float)
+
+    #relationships
+    school = db.relationship('Enrollment', back_populates="school")
+    serialize_rules = ['-school.annual_enrollment'] 
+
 
 class Student(db.Model, SerializerMixin):
     __tablename__ = 'students'
