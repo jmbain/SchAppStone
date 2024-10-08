@@ -5,9 +5,10 @@ import { useState } from 'react'
 import './App.css'
 //________________________________________________end default vite imports
 
+//zJB Imports...
+
 // Joy UI imports
 import '@fontsource/inter'
-
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import Sheet from '@mui/joy/Sheet';
 import Typography from '@mui/joy/Typography';
@@ -63,7 +64,7 @@ function ModeToggle() {
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <CssVarsProvider>
@@ -114,10 +115,6 @@ function App() {
                     >
                       Don't have an account?
                     </Typography>
-
-                    <div className="card">
-                      <Button variant="solid" onClick={() => setCount((count) => count + 1)}>count is {count}</Button>;
-                    </div>
       </Sheet>
     </CssVarsProvider>
   )
