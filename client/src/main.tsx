@@ -9,6 +9,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ErrorPage from './components/ErrorPage.tsx'
 import SchoolsPage from './components/SchoolsPage.tsx'
 import SignInPage from './components/SignInPage.tsx'
+import StudentsPage from './components/StudentsPage.tsx'
+import ApplicationsPage from './components/ApplicationsPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -26,24 +28,24 @@ const router = createBrowserRouter([
       },
       {
         path: '/applications',
-        element: <App />
+        element: <ApplicationsPage />
       },
       {
         path: '/students',
-        element: <App />
+        element: <StudentsPage />
       },
-      {
-        path:"/applications/:id",
-        element: <App />
-      },
-      {
-        path:"/students/:id",
-        element: <App />
-      },
-      {
-        path:"/home/schools/:id",
-        element: <App />
-      }
+      // {
+      //   path:"/applications/:id",
+      //   element: <ApplicationProfile />
+      // },
+      // {
+      //   path:"/students/:id",
+      //   element: <StudentProfile />
+      // },
+      // {
+      //   path:"/home/schools/:id",
+      //   element: <SchoolProfile />
+      // }
     ]
   }
 ])

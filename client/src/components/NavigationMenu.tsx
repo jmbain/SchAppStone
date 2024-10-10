@@ -155,7 +155,7 @@ const AboutMenu = React.forwardRef(
             }}
             sx={[open && ((theme) => theme.variants.plainHover.neutral)]}
           >
-            About <KeyboardArrowDown />
+            My Info <KeyboardArrowDown />
           </ListItemButton>
           <Popper id={id} open={open} anchorEl={anchorEl} disablePortal keepMounted>
             <List
@@ -177,7 +177,7 @@ const AboutMenu = React.forwardRef(
                   <ListItemDecorator>
                     <Apps />
                   </ListItemDecorator>
-                  Overview
+                  My Students
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">
@@ -185,7 +185,7 @@ const AboutMenu = React.forwardRef(
                   <ListItemDecorator>
                     <Person />
                   </ListItemDecorator>
-                  Administration
+                  My School Applications
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">
@@ -193,7 +193,7 @@ const AboutMenu = React.forwardRef(
                   <ListItemDecorator>
                     <FactCheck />
                   </ListItemDecorator>
-                  Facts
+                  My Profile
                 </ListItemButton>
               </ListItem>
             </List>
@@ -270,7 +270,7 @@ const AdmissionsMenu = React.forwardRef(
             }}
             sx={[open && ((theme) => theme.variants.plainHover.neutral)]}
           >
-            Admissions <KeyboardArrowDown />
+            Schools <KeyboardArrowDown />
           </ListItemButton>
           <Popper id={id} open={open} anchorEl={anchorEl} disablePortal keepMounted>
             <List
@@ -291,14 +291,14 @@ const AdmissionsMenu = React.forwardRef(
                 <ListItemButton role="menuitem" {...getTargetProps(0)}>
                   <ListItemContent>Apply</ListItemContent>
                   <Chip size="sm" variant="soft" color="danger">
-                    Last 2 days!
+                    Due 4/1/2025!
                   </Chip>
                 </ListItemButton>
               </ListItem>
               <ListDivider />
               <ListItem role="none">
                 <ListItemButton role="menuitem" {...getTargetProps(1)}>
-                  Visit
+                  School Search
                 </ListItemButton>
               </ListItem>
               <ListItem
@@ -310,7 +310,7 @@ const AdmissionsMenu = React.forwardRef(
                 }
               >
                 <ListItemButton role="menuitem" {...getTargetProps(2)}>
-                  Photo tour
+                  Favorites
                 </ListItemButton>
               </ListItem>
             </List>

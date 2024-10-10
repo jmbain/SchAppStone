@@ -55,6 +55,7 @@ function ModeToggle() {
         setMode(newMode);
       }}
       sx={{ width: 'max-content' }}
+      className='display-toggle'
     >
       <Option value="system">System</Option>
       <Option value="light">Light</Option>

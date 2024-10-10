@@ -2,7 +2,7 @@
 import NavigationMenu from "./NavigationMenu";
 import { Sheet } from "@mui/joy";
 
-function SchoolsPage() {
+function StudentsPage() {
     return (
         <div>
             <br className="navbreak"></br>
@@ -12,7 +12,7 @@ function SchoolsPage() {
                 color="primary"
                 sx={{p: 3}}
             >
-                <h2 className="header">Schools Page</h2>
+                <h2 className="header">Students Page</h2>
                 <h4>Other stuff</h4>
             </Sheet>
         </div>
@@ -20,4 +20,4 @@ function SchoolsPage() {
     )
 }
 
-export default SchoolsPage;
+export default StudentsPage;
