@@ -106,6 +106,59 @@ class Enrollment(db.Model, SerializerMixin):
     school = db.relationship('Enrollment', back_populates="school")
     serialize_rules = ['-school.annual_enrollment'] 
 
+class SupportStaff (db.Model, SerializerMixin):
+    __tablename__ = 'support_staff'
+
+    id = db.Column(db.Integer, primary_key=True)
+    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True) # Confirmed that in most cases, this matches the NCESSH from the other School table
+    SCH_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
+    LEA_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
+    JJ = db.Column(db.String) #Potentially remove... duplicative?
+
+    #JB Added
+    school_year = db.Column(db.String) #JB note: files are annual basis, need to label before uploading
+
+    #quantititive attributes
+    SCH_FTETEACH_TOT = db.Column(db.Float)
+    SCH_FTETEACH_CERT = db.Column(db.Float)
+    SCH_FTETEACH_NOTCERT = db.Column(db.Float)
+    # SCH_FTETEACH_FY = db.Column(db.Float) #Commenting out because data exists up until 17-18, exluded from 20-21
+    # SCH_FTETEACH_SY = db.Column(db.Float) #Commenting out because data exists up until 17-18, exluded from 20-21
+    # SCH_TEACHERS_CURR_TOT = db.Column(db.Integer) #Commenting out because data exists up until 17-18, exluded from 20-21
+    # SCH_TEACHERS_PREV_TOT = db.Column(db.Integer) #Commenting out because data exists up until 17-18, exluded from 20-21
+    # SCH_FTETEACH_ABSENT = db.Column(db.Float) #Commenting out because data exists up until 17-18, exluded from 20-21
+    SCH_FTECOUNSELORS = db.Column(db.Float)
+    SCH_FTESECURITY_LEO = db.Column(db.Float)
+    SCH_FTESECURITY_GUA = db.Column(db.Float)
+    SCH_FTESERVICES_NUR = db.Column(db.Float)
+    SCH_FTESERVICES_PSY = db.Column(db.Float)
+    SCH_FTESERVICES_SOC = db.Column(db.Float)
+
+class SupportStaff (db.Model, SerializerMixin):
+    __tablename__ = 'offenses'
+
+    id = db.Column(db.Integer, primary_key=True)
+    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True) # Confirmed that in most cases, this matches the NCESSH from the other School table
+    SCH_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
+    LEA_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
+    JJ = db.Column(db.String) #Potentially remove... duplicative?
+
+    #JB added
+    school_year = db.Column(db.String) #JB note: files are annual basis, need to label before uploading
+
+    #quantitative attributes
+    SCH_FIREARM_IND = db.Column(db.Integer) 
+    SCH_HOMICIDE_IND = db.Column(db.Integer) 
+    SCH_OFFENSE_RAPE = db.Column(db.Integer) 
+    SCH_OFFENSE_BATT = db.Column(db.Integer) 
+    SCH_OFFENSE_ROBWW = db.Column(db.Integer) 
+    SCH_OFFENSE_ROBWOW = db.Column(db.Integer) 
+    SCH_OFFENSE_ATTWW = db.Column(db.Integer) 
+    SCH_OFFENSE_ATTWOW = db.Column(db.Integer)
+    SCH_OFFENSE_THRWW = db.Column(db.Integer) 
+    SCH_OFFENSE_THRWOW = db.Column(db.Integer) 
+    SCH_OFFENSE_POSSWX = db.Column(db.Integer) 
+
 
 class Student(db.Model, SerializerMixin):
     __tablename__ = 'students'
