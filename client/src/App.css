@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-header {
+  position: absolute; top:0; left: 0;
+  width: 100%;
+  background-color: gray;
+}

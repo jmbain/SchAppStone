@@ -8,6 +8,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ErrorPage from './components/ErrorPage.tsx'
 import SchoolsPage from './components/SchoolsPage.tsx'
+import SignInPage from './components/SignInPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/signin',
+        element: <SignInPage />
+      },
       {
         path: '/schools',
         element: <SchoolsPage />

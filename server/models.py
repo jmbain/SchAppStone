@@ -106,7 +106,7 @@ class Enrollment(db.Model, SerializerMixin):
     school = db.relationship('Enrollment', back_populates="school")
     serialize_rules = ['-school.annual_enrollment'] 
 
-class SupportStaff (db.Model, SerializerMixin):
+class SupportStaff(db.Model, SerializerMixin):
     __tablename__ = 'support_staff'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -134,7 +134,11 @@ class SupportStaff (db.Model, SerializerMixin):
     SCH_FTESERVICES_PSY = db.Column(db.Float)
     SCH_FTESERVICES_SOC = db.Column(db.Float)
 
-class SupportStaff (db.Model, SerializerMixin):
+    #relationships NEED TO REVISIT
+    # school = db.relationship('Enrollment', back_populates="school")
+    # serialize_rules = ['-school.annual_enrollment'] 
+
+class Offenses(db.Model, SerializerMixin):
     __tablename__ = 'offenses'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -159,6 +163,9 @@ class SupportStaff (db.Model, SerializerMixin):
     SCH_OFFENSE_THRWOW = db.Column(db.Integer) 
     SCH_OFFENSE_POSSWX = db.Column(db.Integer) 
 
+    #relationships NEED TO REVISIT
+    # school = db.relationship('Enrollment', back_populates="school")
+    # serialize_rules = ['-school.annual_enrollment'] 
 
 class Student(db.Model, SerializerMixin):
     __tablename__ = 'students'
