@@ -173,7 +173,12 @@ const AboutMenu = React.forwardRef(
               }}
             >
               <ListItem role="none">
-                <ListItemButton role="menuitem" {...getTargetProps(0)}>
+              <ListItemButton
+                role="menuitem"
+                {...getTargetProps(0)}
+                component="a"
+                href="/students"
+              >
                   <ListItemDecorator>
                     <Apps />
                   </ListItemDecorator>
@@ -181,7 +186,11 @@ const AboutMenu = React.forwardRef(
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">
-                <ListItemButton role="menuitem" {...getTargetProps(1)}>
+                <ListItemButton 
+                  role="menuitem" {...getTargetProps(1)}
+                  component="a"
+                  href="/applications"
+                  >
                   <ListItemDecorator>
                     <Person />
                   </ListItemDecorator>
@@ -341,7 +350,7 @@ function NavigationMenu() {
             role="menuitem"
             {...getTargetProps(0)}
             component="a"
-            href="#navigation-menu"
+            href="/home"
           >
             <ListItemDecorator>
               <HomeRounded />
