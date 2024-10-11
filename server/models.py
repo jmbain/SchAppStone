@@ -71,7 +71,7 @@ class Enrollment(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     school_id = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True)
     OBJECTID = db.Column(db.Integer, unique=True) # Government's unique ID...
-    SURVYEAR = db.Column(db.String, unique=True) # Survey Year, e.g. 2019-2020
+    SURVYEAR = db.Column(db.String) # Survey Year, e.g. 2019-2020
 
     #enrollment attributes, free and reduced lunch
     TOTFRL = db.Column(db.Integer) # Total Free and Reduced Lunch
