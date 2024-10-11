@@ -297,7 +297,11 @@ const AdmissionsMenu = React.forwardRef(
               }}
             >
               <ListItem role="none">
-                <ListItemButton role="menuitem" {...getTargetProps(0)}>
+                <ListItemButton 
+                  role="menuitem" 
+                  {...getTargetProps(0)}
+                  component="a"
+                  href="/apply">
                   <ListItemContent>Apply</ListItemContent>
                   <Chip size="sm" variant="soft" color="danger">
                     Due 4/1/2025!

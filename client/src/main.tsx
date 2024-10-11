@@ -11,6 +11,7 @@ import SchoolsPage from './components/SchoolsPage.tsx'
 import SignInPage from './components/SignInPage.tsx'
 import StudentsPage from './components/StudentsPage.tsx'
 import ApplicationsPage from './components/ApplicationsPage.tsx'
+import ApplyToSchoolForm from './components/ApplyToSchoolForm.tsx'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/students',
         element: <StudentsPage />
+      },
+      {
+        path: '/apply',
+        element: <ApplyToSchoolForm />
       },
       // {
       //   path:"/applications/:id",

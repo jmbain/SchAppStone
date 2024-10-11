@@ -13,8 +13,8 @@ function StudentsPage() {
             <NavigationMenu />
             <br className="navbreak"></br>
             <Sheet
-                variant="outlined"
-                color="primary"
+                variant="soft"
+                color="warning"
                 sx={{
                     p: 3,
                     width: 500,
@@ -23,10 +23,11 @@ function StudentsPage() {
                 }}
             >
                 <Typography level="h1">Students Page</Typography>
-                <Card sx={{
+                <Card variant="solid" color="success" sx={{
                             m: 2,
                             boxShadow: 'md',
                         }}>
+                        
                     <h4>Card 1</h4>
                 </Card>
                 <Card sx={{
