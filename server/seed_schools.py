@@ -1,5 +1,6 @@
 import csv;
-from models import db, app, School
+from models import db, School
+from app import app
 
 # This is just a shell/template, need to revisit and actually test
 
@@ -11,27 +12,28 @@ with app.app_context():
             for schools in csvFile:
                 school = School(
                     NCESSCH=schools[0],
-                    SURVYEAR=schools[1],
-                    STABR=schools[2],
-                    LEAID=schools[3],
-                    ST_LEAID=schools[4],
-                    LSTREET1=schools[5],
-                    LZIP=schools[6],
+                    STABR=schools[1],
+                    LEAID=schools[2],
+                    ST_LEAID=schools[3],
+                    LEA_NAME=schools[4],
+                    SCH_NAME=schools[5],
+                    LSTREET1=schools[6],
                     LCITY=schools[7],
                     LSTATE=schools[8],
-                    NMCNTY=schools[9],
-                    LATCOD=schools[10],
-                    LONCOD=schools[11],
-                    PHONE=schools[12],
-                    CHARTER_TEXT=schools[13],
-                    VIRTUAL=schools[14],
-                    GSLO=schools[15],
-                    GSHI=schools[16],
-                    SCHOOL_LEVEL=schools[17],
-                    SCHOOL_TYPE_TEXT=schools[18],
-                    SY_STATUS_TEXT=schools[19],
-                    ULOCALE=schools[20],
+                    LZIP=schools[9],
+                    PHONE=schools[10],
+                    CHARTER_TEXT=schools[11],
+                    VIRTUAL=schools[12],
+                    GSLO=schools[13],
+                    GSHI=schools[14],
+                    SCHOOL_LEVEL=schools[15],
+                    SCHOOL_TYPE_TEXT=schools[16],
+                    SY_STATUS_TEXT=schools[17],
+                    ULOCALE=schools[18],
+                    NMCNTY=schools[19],
+                    LATCOD=schools[20],
+                    LONCOD=schools[21]
                 )
                 school_list.append(school)
-    csv_to_db("/filepath")
+    csv_to_db("./seed/.SEED DATA - NY Schools Table.csv")
     db.session.add_all(school_list[1:])

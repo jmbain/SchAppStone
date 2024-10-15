@@ -1,5 +1,6 @@
 import csv;
-from models import db, app, Offenses
+from models import db, Offenses
+from app import app
 
 # This is just a shell/template, need to revisit and actually test
 
@@ -25,8 +26,8 @@ with app.app_context():
                     SCH_OFFENSE_ATTWOW=offense_years[12],
                     SCH_OFFENSE_THRWW=offense_years[13],
                     SCH_OFFENSE_THRWOW=offense_years[14],
-                    SCH_OFFENSE_POSSWX=offense_years[14],
+                    SCH_OFFENSE_POSSWX=offense_years[15],
                 )
                 offenses_list.append(offense)
-    csv_to_db("/filepath")
+    csv_to_db("./seed/.SEED DATA - NY Offenses Table.csv")
     db.session.add_all(offenses_list[1:])

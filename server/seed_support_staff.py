@@ -1,5 +1,6 @@
 import csv;
-from models import db, app, SupportStaff
+from models import db, SupportStaff
+from app import app
 
 # This is just a shell/template, need to revisit and actually test
 
@@ -10,7 +11,7 @@ with app.app_context():
             csvFile = csv.reader(file)
             for staff_years in csvFile:
                 staff = SupportStaff(
-                    COMBOKEY=staff_years[0],
+                    COMBOKEY=staff_years[0], #this should serve as foreign key connector if possible
                     SCH_NAME=staff_years[1],
                     LEA_NAME=staff_years[2],
                     LEAID=staff_years[3],
@@ -27,5 +28,5 @@ with app.app_context():
                     SCH_FTESERVICES_SOC=staff_years[14],
                 )
                 staff_list.append(staff)
-    csv_to_db("/filepath")
+    csv_to_db("./seed/.SEED DATA - NY School Support Table.csv")
     db.session.add_all(staff_list[1:])
