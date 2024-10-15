@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Popper } from '@mui/base/Popper';
 import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 import Box from '@mui/joy/Box';
-import IconButton from '@mui/joy/IconButton';
+// import IconButton from '@mui/joy/IconButton';
 import Chip from '@mui/joy/Chip';
 import List from '@mui/joy/List';
 import ListDivider from '@mui/joy/ListDivider';
@@ -15,7 +15,7 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Person from '@mui/icons-material/Person';
 import Apps from '@mui/icons-material/Apps';
 import FactCheck from '@mui/icons-material/FactCheck';
-import BookmarkAdd from '@mui/icons-material/BookmarkAdd';
+// import BookmarkAdd from '@mui/icons-material/BookmarkAdd';
 
 type Options = {
   initialActiveIndex: null | number;
@@ -155,7 +155,7 @@ const AboutMenu = React.forwardRef(
             }}
             sx={[open && ((theme) => theme.variants.plainHover.neutral)]}
           >
-            My Info <KeyboardArrowDown />
+            School Applications <KeyboardArrowDown />
           </ListItemButton>
           <Popper id={id} open={open} anchorEl={anchorEl} disablePortal keepMounted>
             <List
@@ -189,16 +189,32 @@ const AboutMenu = React.forwardRef(
                 <ListItemButton 
                   role="menuitem" {...getTargetProps(1)}
                   component="a"
-                  href="/applications"
+                  href="/schools"
                   >
                   <ListItemDecorator>
                     <Person />
+                  </ListItemDecorator>
+                  Saved Schools
+                </ListItemButton>
+              </ListItem>
+              <ListItem role="none">
+                <ListItemButton 
+                  role="menuitem" 
+                  {...getTargetProps(2)}
+                  
+                  >
+                  <ListItemDecorator>
+                    <FactCheck />
                   </ListItemDecorator>
                   My School Applications
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">
-                <ListItemButton role="menuitem" {...getTargetProps(2)}>
+                <ListItemButton 
+                  role="menuitem" 
+                  {...getTargetProps(2)}
+                  
+                  >
                   <ListItemDecorator>
                     <FactCheck />
                   </ListItemDecorator>
@@ -311,9 +327,9 @@ const AdmissionsMenu = React.forwardRef(
               <ListDivider />
               <ListItem role="none">
                 <ListItemButton role="menuitem" {...getTargetProps(1)}>
-                  School Search
+                  School Explorer
                 </ListItemButton>
-              </ListItem>
+              {/* </ListItem>
               <ListItem
                 role="none"
                 endAction={
@@ -324,6 +340,11 @@ const AdmissionsMenu = React.forwardRef(
               >
                 <ListItemButton role="menuitem" {...getTargetProps(2)}>
                   Favorites
+                </ListItemButton> */}
+              </ListItem>
+              <ListItem role="none">
+                <ListItemButton role="menuitem" {...getTargetProps(1)}>
+                  School Stats
                 </ListItemButton>
               </ListItem>
             </List>

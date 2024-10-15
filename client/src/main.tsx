@@ -12,6 +12,7 @@ import SignInPage from './components/SignInPage.tsx'
 import StudentsPage from './components/StudentsPage.tsx'
 import ApplicationsPage from './components/ApplicationsPage.tsx'
 import ApplyToSchoolForm from './components/ApplyToSchoolForm.tsx'
+import HomePage from './components/Home.tsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/home',
+        element: <HomePage />
+      },
       {
         path: '/signin',
         element: <SignInPage />
