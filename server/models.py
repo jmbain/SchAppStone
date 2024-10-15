@@ -219,14 +219,6 @@ class Application(db.Model, SerializerMixin):
     def __repr__(self) -> str:
         return f'<Application {self.id} Name: {self.student.first_name} {self.student.last_name} School: {self.school.school_name}>'
 
-class Leaderboard(db.Model, SerializerMixin):
-    __tablename__ = 'leaderboard'
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    score = db.Column(db.Integer)
-    accuracy = db.Column(db.Float) #double check if this is the right data type
-
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
