@@ -67,8 +67,8 @@ function SchoolProfile() {
                             <SchoolOffensesData/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 15'}} >
-                            <Button sx={{margin:5 }}>Save For Later</Button>
-                            <Button sx={{margin:5}}>Apply Now </Button>
+                            <Button sx={{margin:5}}>Save For Later</Button>
+                            <Button variant="solid" sx={{margin:5}}>Apply Now </Button>
                         </Box>
                     </Box>
                 </Box>

@@ -31,7 +31,6 @@ class School(db.Model, SerializerMixin):
     #school identification and administration attributes
     id = db.Column(db.Integer, primary_key=True)
     NCESSCH = db.Column(db.Integer, unique=True)
-    OBJECTID = db.Column(db.Integer, unique=True) # this will be the primary key on the enrollment table, Ben recommends not having in School data and only have for auditing enrollment table
     SCH_NAME = db.Column(db.String)
     LEAID = db.Column(db.String) # LEA means Local Education Agency
     ST_LEAID = db.Column(db.String)
@@ -70,8 +69,8 @@ class Enrollment(db.Model, SerializerMixin):
 
     #general attributes
     id = db.Column(db.Integer, primary_key=True)
-    school_id = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True)
-    OBJECTID = db.Column(db.Integer, unique=True) # Government's unique ID...
+    NCESSCH = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"))
+    OBJECTID = db.Column(db.Integer) # Government's unique ID...
     SURVYEAR = db.Column(db.String) # Survey Year, e.g. 2019-2020
 
     #enrollment attributes, free and reduced lunch

@@ -4,7 +4,8 @@ from app import app
 
 # This is just a shell/template, need to revisit and actually test
 
-with app.app_context():
+def seed_from_csv():
+    Enrollment.query.delete()
     enrollment_list = []
     def csv_to_db(csv_file):
         with open(csv_file, mode='r') as file:
@@ -39,5 +40,48 @@ with app.app_context():
                     STUTERATIO=enrollment_years[25],
                 )
                 enrollment_list.append(enrollment_year)
-    csv_to_db("./seed/.SEED DATA - NY Enrollmnet Table.csv")
+    csv_to_db("./seed/.SEED DATA - NY Enrollment Table.csv")
     db.session.add_all(enrollment_list[1:])
+    db.session.commit()
+
+# manual seeding can be used for troubleshooting errors
+# def seed_manually():
+#     Enrollment.query.delete()
+
+#     enrollments = [
+#         Enrollment(OBJECTID=50930,
+#                     NCESSCH=360016205855, # note this is like a foreign key to schools and can be used for cross checks 
+#                     SURVYEAR='2019-2020',
+#                     TOTFRL=587,
+#                     FRELCH=544,
+#                     REDLCH=43,
+#                     PK=0,
+#                     KG=73,
+#                     G01=75,
+#                     G02=76,
+#                     G03=75,
+#                     G04=73,
+#                     G05=71,
+#                     G06=69,
+#                     G07=77,
+#                     G08=56,
+#                     G09=0,
+#                     G10=0,
+#                     G11=0,
+#                     G12=0,
+#                     G13=0,
+#                     TOTMENROL=276,
+#                     TOTFENROL=369,
+#                     TOTAL=645,
+#                     FTE=37.95,
+#                     STUTERATIO=16.99604743,
+#                 ),
+#                 ]
+#     print(enrollments)
+#     db.session.add_all(enrollments)
+#     db.session.commit()
+
+
+if __name__ == '__main__':
+    with app.app_context():
+        seed_from_csv()
