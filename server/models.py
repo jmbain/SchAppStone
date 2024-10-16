@@ -61,8 +61,9 @@ class School(db.Model, SerializerMixin):
 
     #relationships
     applications = db.relationship('Application', back_populates="school")
+    annual_enrollment = db.relationship('Enrollment', back_populates="school")
     # user = db.relationship('User', back_populates="school")
-    serialize_rules = ['-applications'] 
+    serialize_rules = ['-applications', '-annual_enrollment.school'] 
 
 class Enrollment(db.Model, SerializerMixin):
     __tablename__ = 'annual_enrollment'
@@ -103,8 +104,8 @@ class Enrollment(db.Model, SerializerMixin):
     STUTERATIO = db.Column(db.Float)
 
     #relationships
-    school = db.relationship('Enrollment', back_populates="school")
-    serialize_rules = ['-school.annual_enrollment'] 
+    school = db.relationship('School', back_populates="annual_enrollment")
+    serialize_rules = ['-school'] 
 
 class SupportStaff(db.Model, SerializerMixin):
     __tablename__ = 'support_staff'
