@@ -1,17 +1,15 @@
-import { Typography } from "@mui/material"
-import { Sheet } from "@mui/joy"
-import Card from "@mui/material"
+import { Sheet, Card, Typography } from "@mui/joy"
 
 function SchoolsBasicData() {
 
     return (
-        <div className="schoolProfileContainer">
-            <div className="schoolDataContainer">
-                <h3>School Name: Blah</h3>
-                <h5>School Gov ID: Blah</h5>
-                <h5>School City: Blah</h5>
-            </div>
-        </div>
+        <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10}}>
+            <Card className="schoolDataContainer">
+                <Typography level="h2">School Name: </Typography>
+                <Typography level="h4">School Address: </Typography>
+                <Typography level="h4">School District: </Typography>
+            </Card>
+        </Sheet>
     )
 
 }

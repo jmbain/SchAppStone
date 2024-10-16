@@ -5,8 +5,17 @@
 
 import { styled } from '@mui/joy/styles';
 import Sheet from '@mui/joy/Sheet';
-import Grid from '@mui/joy/Grid';
+import NavigationMenu from './NavigationMenu';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+
+
 import SchoolsBasicData from './SchoolsBasicData';
+import SchoolsEnrollmentData from './SchoolsEnrollmentData';
+import SchoolStaffData from './SchoolStaffData';
+import SchoolOffensesData from './SchoolsOffensesData';
+
+
 
 const Item = styled(Sheet)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -38,23 +47,31 @@ function SchoolProfile() {
     // if(school!==null) {
         return(
             <div>
-                <Grid container
-            spacing={{ xs: 5, md: 5 }}
-            columns={{ xs: 5, sm: 10, md: 15 }}
-            sx={{ flexGrow: 1 }}>
-                <Grid xs={2} md={8} component={SchoolsBasicData}>
-                    <Item>xs=6 md=8</Item>
-                </Grid>
-                <Grid xs={6} md={4} component={SchoolsBasicData}>
-                    <Item>xs=6 md=4</Item>
-                </Grid>
-                <Grid xs={6} md={4} component={SchoolsBasicData}>
-                    <Item>xs=6 md=4</Item>
-                </Grid>
-                <Grid xs={6} md={8} component={SchoolsBasicData}>
-                    <Item>xs=6 md=8</Item>
-                </Grid>
-            </Grid>
+                <br></br>
+                <br></br>
+                <NavigationMenu/>
+                <br></br>
+                <br></br>
+                <Box sx={{ width: 1 }}>
+                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(16, 1fr)', gridTemplateRows: 'auto', gap: 2, minWidth: 800 }}>
+                        <Box sx={{ gridColumn: 'span 15'}} >
+                            <SchoolsBasicData/>
+                        </Box>
+                        <Box sx={{ gridColumn: 'span 5' }}>
+                            <SchoolsEnrollmentData/>
+                        </Box>
+                        <Box sx={{ gridColumn: 'span 5' }}>
+                            <SchoolStaffData/>
+                        </Box>
+                        <Box sx={{ gridColumn: 'span 5' }}>
+                            <SchoolOffensesData/>
+                        </Box>
+                        <Box sx={{ gridColumn: 'span 15'}} >
+                            <Button sx={{margin:5 }}>Save For Later</Button>
+                            <Button sx={{margin:5}}>Apply Now </Button>
+                        </Box>
+                    </Box>
+                </Box>
             </div>
             
         )
