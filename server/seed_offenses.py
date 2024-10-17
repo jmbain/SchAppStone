@@ -4,7 +4,8 @@ from app import app
 
 # This is just a shell/template, need to revisit and actually test
 
-with app.app_context():
+def seed_from_csv():
+    Offenses.query.delete()
     offenses_list = []
     def csv_to_db(csv_file):
         with open(csv_file, mode='r') as file:
@@ -31,3 +32,8 @@ with app.app_context():
                 offenses_list.append(offense)
     csv_to_db("./seed/.SEED DATA - NY Offenses Table.csv")
     db.session.add_all(offenses_list[1:])
+    db.session.commit()
+
+if __name__ == '__main__':
+    with app.app_context():
+        seed_from_csv()

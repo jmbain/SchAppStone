@@ -62,6 +62,7 @@ class School(db.Model, SerializerMixin):
     applications = db.relationship('Application', back_populates="school")
     annual_enrollment = db.relationship('Enrollment', back_populates="school")
     support_staff = db.relationship("SupportStaff", back_populates="school")
+    offenses = db.relationship("Offenses", back_populates="school")
     # user = db.relationship('User', back_populates="school")
     serialize_rules = ['-applications', '-annual_enrollment.school', '-support_staff.school'] 
 
@@ -135,7 +136,7 @@ class SupportStaff(db.Model, SerializerMixin):
     SCH_FTESERVICES_PSY = db.Column(db.Float)
     SCH_FTESERVICES_SOC = db.Column(db.Float)
 
-    #relationships NEED TO REVISIT
+    #relationships
     school = db.relationship('School', back_populates="support_staff")
     serialize_rules = ['-school'] 
 
@@ -143,7 +144,7 @@ class Offenses(db.Model, SerializerMixin):
     __tablename__ = 'offenses'
 
     id = db.Column(db.Integer, primary_key=True)
-    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True) # Confirmed that in most cases, this matches the NCESSH from the other School table
+    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH")) # Confirmed that in most cases, this matches the NCESSH from the other School table
     SCH_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
     LEA_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
     JJ = db.Column(db.String) #Potentially remove... duplicative?
@@ -164,9 +165,9 @@ class Offenses(db.Model, SerializerMixin):
     SCH_OFFENSE_THRWOW = db.Column(db.Integer) 
     SCH_OFFENSE_POSSWX = db.Column(db.Integer) 
 
-    #relationships NEED TO REVISIT
-    # school = db.relationship('Enrollment', back_populates="school")
-    # serialize_rules = ['-school.annual_enrollment'] 
+    #relationships
+    school = db.relationship('School', back_populates="offenses")
+    serialize_rules = ['-school'] 
 
 class Student(db.Model, SerializerMixin):
     __tablename__ = 'students'
