@@ -34,24 +34,33 @@ function SchoolsStaffData({school}) {
         }
     })
 
-    let cardColor;
+    let ratioCardColor;
 
     if(enrollment22_23.STUTERATIO > enrollment19_20.STUTERATIO) {
-        cardColor = "success"
+        ratioCardColor = "success"
     }
     else if(enrollment22_23.STUTERATIO < enrollment19_20.STUTERATIO) {
-        cardColor = "danger"
+        ratioCardColor = "danger"
     }
     else if(enrollment22_23.STUTERATIO == enrollment19_20.STUTERATIO) {
-        cardColor = "neutral"
+        ratioCardColor = "neutral"
     }
 
+    let otherCardColor = "warning"
+
     return (
-        <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10}}>
-            <Card className="schoolDataContainer" color={cardColor} variant="solid">
-                <Typography level="h2">Student to Staff Ratio: {enrollment22_23.STUTERATIO} </Typography>
+        <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10, padding:2}}>
+            <Typography level="h2">School Staffing</Typography>
+            <Card className="schoolDataContainer" color={ratioCardColor} variant="solid" sx={{margin:2}}>
+                <Typography level="h4">Student to Staff Ratio: {enrollment22_23.STUTERATIO} </Typography>
+            </Card>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
                 <Typography level="h4">Teachers: {staffing20_21.SCH_FTETEACH_TOT} </Typography>
+            </Card>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
                 <Typography level="h4">Security: </Typography>
+            </Card>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
                 <Typography level="h4">Services: Counselors, Nurses, Psychologists, Social Workers  </Typography>
             </Card>
         </Sheet>
