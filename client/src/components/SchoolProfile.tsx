@@ -1,10 +1,10 @@
 //________STARTING WITH APPLICATION PROFILE AS TEMPLATE, NEED TO UPDATE______________
 
-// import { useState, useEffect } from "react";
-// import { useParams, useOutletContext } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import { styled } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
+// import { styled } from '@mui/joy/styles';
+// import Sheet from '@mui/joy/Sheet';
 import NavigationMenu from './NavigationMenu';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
@@ -12,39 +12,39 @@ import Button from '@mui/joy/Button';
 
 import SchoolsBasicData from './SchoolsBasicData';
 import SchoolsEnrollmentData from './SchoolsEnrollmentData';
-import SchoolStaffData from './SchoolStaffData';
+import SchoolsStaffData from "./SchoolsStaffData";
 import SchoolOffensesData from './SchoolsOffensesData';
 
 
 
-const Item = styled(Sheet)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography['body-sm'],
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    borderRadius: 4,
-    color: theme.vars.palette.text.secondary,
-    ...theme.applyStyles('dark', {
-      backgroundColor: theme.palette.background.level1,
-    }),
-  }));
+// const Item = styled(Sheet)(({ theme }) => ({
+//     backgroundColor: '#fff',
+//     ...theme.typography['body-sm'],
+//     padding: theme.spacing(1),
+//     textAlign: 'center',
+//     borderRadius: 4,
+//     color: theme.vars.palette.text.secondary,
+//     ...theme.applyStyles('dark', {
+//       backgroundColor: theme.palette.background.level1,
+//     }),
+//   }));
 
 function SchoolProfile() {
-    // const [school, setSchool] = useState(null)
-    // const {id} = useParams()
+    const [school, setSchool] = useState(null)
+    const {id} = useParams()
 
     // console.log(school)
 
-    // useEffect(() => {
-    //     fetch(`/api/schools/${id}`)
-    //     .then(r => {
-    //         if(r.ok) {
-    //             r.json().then((schoolData) => setSchool(schoolData))
-    //         }
-    //     })
-    // },[])
+    useEffect(() => {
+        fetch(`/api/schools/${id}`)
+        .then(r => {
+            if(r.ok) {
+                r.json().then((schoolData) => setSchool(schoolData))
+            }
+        })
+    },[])
 
-    // if(school!==null) {
+    if(school!==null) {
         return(
             <div>
                 <br></br>
@@ -55,16 +55,16 @@ function SchoolProfile() {
                 <Box sx={{ width: 1 }}>
                     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(16, 1fr)', gridTemplateRows: 'auto', gap: 2, minWidth: 800 }}>
                         <Box sx={{ gridColumn: 'span 15'}} >
-                            <SchoolsBasicData/>
+                            <SchoolsBasicData school={school}/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 5' }}>
-                            <SchoolsEnrollmentData/>
+                            <SchoolsEnrollmentData school={school}/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 5' }}>
-                            <SchoolStaffData/>
+                            <SchoolsStaffData school={school}/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 5' }}>
-                            <SchoolOffensesData/>
+                            <SchoolOffensesData school={school}/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 15'}} >
                             <Button sx={{margin:5}}>Save For Later</Button>
@@ -76,7 +76,7 @@ function SchoolProfile() {
             
         )
 
-    // }
+    }
 }
 
 export default SchoolProfile;

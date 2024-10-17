@@ -1,6 +1,6 @@
 import { Sheet, Card, Typography, Button } from "@mui/joy"
 
-function SchoolOffensesData() {
+function SchoolOffensesData({school}) {
 
     return (
         <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10}}>
