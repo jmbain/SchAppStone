@@ -61,8 +61,9 @@ class School(db.Model, SerializerMixin):
     #relationships
     applications = db.relationship('Application', back_populates="school")
     annual_enrollment = db.relationship('Enrollment', back_populates="school")
+    support_staff = db.relationship("SupportStaff", back_populates="school")
     # user = db.relationship('User', back_populates="school")
-    serialize_rules = ['-applications', '-annual_enrollment.school'] 
+    serialize_rules = ['-applications', '-annual_enrollment.school', '-support_staff.school'] 
 
 class Enrollment(db.Model, SerializerMixin):
     __tablename__ = 'annual_enrollment'
@@ -135,8 +136,8 @@ class SupportStaff(db.Model, SerializerMixin):
     SCH_FTESERVICES_SOC = db.Column(db.Float)
 
     #relationships NEED TO REVISIT
-    # school = db.relationship('Enrollment', back_populates="school")
-    # serialize_rules = ['-school.annual_enrollment'] 
+    school = db.relationship('School', back_populates="support_staff")
+    serialize_rules = ['-school'] 
 
 class Offenses(db.Model, SerializerMixin):
     __tablename__ = 'offenses'
