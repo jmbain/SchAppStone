@@ -110,7 +110,7 @@ class SupportStaff(db.Model, SerializerMixin):
     __tablename__ = 'support_staff'
 
     id = db.Column(db.Integer, primary_key=True)
-    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"), unique=True) # Confirmed that in most cases, this matches the NCESSH from the other School table
+    COMBOKEY = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH")) # Confirmed that in most cases, this matches the NCESSH from the other School table
     SCH_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
     LEA_NAME = db.Column(db.String) #Keeping this to run checks and confirm COMBOKEY is mapped right
     JJ = db.Column(db.String) #Potentially remove... duplicative?
