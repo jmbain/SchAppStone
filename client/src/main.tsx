@@ -14,6 +14,7 @@ import ApplicationsPage from './components/ApplicationsPage.tsx'
 import ApplyToSchoolForm from './components/ApplyToSchoolForm.tsx'
 import HomePage from './components/Home.tsx'
 import SchoolProfile from './components/SchoolProfile.tsx'
+import MySchoolsPage from './components/MySchoolsPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/schools',
         element: <SchoolsPage />
+      },
+      {
+        path: '/myschools',
+        element: <MySchoolsPage />
       },
       {
         path: '/applications',
@@ -57,10 +62,6 @@ const router = createBrowserRouter([
         path:"/home/schools/:id",
         element: <SchoolProfile />
       },
-      {
-        path:"/schoolprofiletesting",
-        element: <SchoolProfile />
-      }
     ]
   }
 ])

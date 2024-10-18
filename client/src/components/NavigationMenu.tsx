@@ -189,7 +189,7 @@ const AboutMenu = React.forwardRef(
                 <ListItemButton 
                   role="menuitem" {...getTargetProps(1)}
                   component="a"
-                  href="/schools"
+                  href="/myschools"
                   >
                   <ListItemDecorator>
                     <Person />
@@ -201,7 +201,8 @@ const AboutMenu = React.forwardRef(
                 <ListItemButton 
                   role="menuitem" 
                   {...getTargetProps(2)}
-                  
+                  component="a"
+                  href="/applications"
                   >
                   <ListItemDecorator>
                     <FactCheck />
@@ -326,7 +327,11 @@ const AdmissionsMenu = React.forwardRef(
               </ListItem>
               <ListDivider />
               <ListItem role="none">
-                <ListItemButton role="menuitem" {...getTargetProps(1)}>
+                <ListItemButton 
+                  role="menuitem" 
+                  {...getTargetProps(1)}
+                  component="a"
+                  href="/schools">
                   School Explorer
                 </ListItemButton>
               {/* </ListItem>

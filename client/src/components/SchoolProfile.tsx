@@ -35,6 +35,10 @@ function SchoolProfile() {
 
     // console.log(school)
 
+    interface school {
+        //set the school type
+    }
+
     useEffect(() => {
         fetch(`/api/schools/${id}`)
         .then(r => {

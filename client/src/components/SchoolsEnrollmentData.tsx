@@ -1,6 +1,7 @@
 import { Sheet, Card, Typography } from "@mui/joy"
 
 function SchoolsEnrollmentData({school}) {
+
     
     let enrollment22_23;
     let enrollment21_22;

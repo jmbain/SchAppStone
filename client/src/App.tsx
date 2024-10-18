@@ -23,6 +23,20 @@ import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import React from 'react'; // also added this in step 9 below
 
+//Imports for MUI and Joy UI that allow for mixing the styles of both
+import {
+  useColorScheme as useMaterialColorScheme,
+  ThemeProvider as MaterialCssVarsProvider,
+  extendTheme as extendMaterialTheme,
+  THEME_ID
+} from "@mui/material/styles";
+import {
+  CssVarsProvider as JoyCssVarsProvider,
+  useColorScheme as useJoyColorScheme
+} from "@mui/joy/styles";
+
+const materialTheme = extendMaterialTheme();
+
 
 //Joy UI tutorial instructions for posterity - note, refer to SignInSheet component where some of this has been relocated to...
 // 1. Add Joy UI with... npm install @mui/joy @emotion/react @emotion/styled
@@ -70,15 +84,17 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <CssVarsProvider>
-      <div className="appContainer">
-        <Header/>
-        <ModeToggle />
-        <Outlet context={{
+    <MaterialCssVarsProvider theme={{ [THEME_ID]: materialTheme }}>
+      <JoyCssVarsProvider>
+        <div className="appContainer">
+          <Header/>
+          <ModeToggle />
+          <Outlet context={{
 
-        }}/>
-      </div>
-    </CssVarsProvider>
+          }}/>
+        </div>
+      </JoyCssVarsProvider>
+    </MaterialCssVarsProvider>
   )
 }
 
