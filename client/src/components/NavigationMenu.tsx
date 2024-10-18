@@ -207,7 +207,7 @@ const AboutMenu = React.forwardRef(
                   <ListItemDecorator>
                     <FactCheck />
                   </ListItemDecorator>
-                  My School Applications
+                  My Applications
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">

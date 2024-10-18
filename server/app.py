@@ -40,7 +40,12 @@ def index():
 def all_schools():
     if request.method == "GET":
         schools = School.query.all()
-        return [school.to_dict() for school in schools], 200
+        return [school.to_dict(rules=['-annual_enrollment', '-support_staff', '-offenses']) for school in schools], 200
+    
+def schoolPagination():
+    if request.method == "GET":
+        schools = School.query.all()
+        return [school.to_dict(rules=['-', '+']) for school in schools], 200
 
 @app.route('/api/schools/<int:id>', methods=["GET"])
 def school_by_id(id):

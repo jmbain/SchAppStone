@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       //   element: <StudentProfile />
       // },
       {
-        path:"/home/schools/:id",
+        path:"/schools/:id",
         element: <SchoolProfile />
       },
     ]
