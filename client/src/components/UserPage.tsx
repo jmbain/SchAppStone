@@ -1,10 +1,9 @@
 // Imports (e.g. SchoolCard, SchoolList...)
 import NavigationMenu from "./NavigationMenu";
 import { Sheet, Card, Typography } from "@mui/joy";
-import StudentCard1 from "./StudentCard1";
-import StudentCard2 from "./StudentCard2";
+import UserCard from "./UserProfile";
 
-function StudentsPage() {
+function UserPage() {
 
 
     
@@ -24,13 +23,9 @@ function StudentsPage() {
                     borderRadius: 'sm',
                 }}
             >
-                <Typography level="h1">My Students</Typography>
+                <Typography level="h1">My Profile</Typography>
                 <br></br>
-                <StudentCard1/>
-                <StudentCard2/>
-                <Card sx={{ width: 320, maxWidth: '100%', boxShadow: 'lg', margin:2 }} >
-                    <h4>Add Student</h4>
-                </Card>
+                <UserCard/>
             </Sheet>
             
         </div>
@@ -38,4 +33,4 @@ function StudentsPage() {
     )
 }
 
-export default StudentsPage;
+export default UserPage;

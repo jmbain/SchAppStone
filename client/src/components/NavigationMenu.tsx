@@ -214,7 +214,8 @@ const AboutMenu = React.forwardRef(
                 <ListItemButton 
                   role="menuitem" 
                   {...getTargetProps(2)}
-                  
+                  component="a"
+                  href="/user"
                   >
                   <ListItemDecorator>
                     <FactCheck />

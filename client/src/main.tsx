@@ -15,6 +15,7 @@ import ApplyToSchoolForm from './components/ApplyToSchoolForm.tsx'
 import HomePage from './components/Home.tsx'
 import SchoolProfile from './components/SchoolProfile.tsx'
 import MySchoolsPage from './components/MySchoolsPage.tsx'
+import UserPage from './components/UserPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path:"/schools/:id",
         element: <SchoolProfile />
+      },
+      {
+        path:"/user", // reminder to update to include /:id so that parameter accesses correct user?
+        element: <UserPage />
       },
     ]
   }

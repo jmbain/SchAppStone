@@ -54,14 +54,14 @@ function SchoolsStaffData({school}) {
             <Card className="schoolDataContainer" color={ratioCardColor} variant="solid" sx={{margin:2}}>
                 <Typography level="h4">Student to Staff Ratio: {enrollment22_23.STUTERATIO} </Typography>
             </Card>
-            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="soft" sx={{margin:2}}>
                 <Typography level="h4">Teachers: {staffing20_21.SCH_FTETEACH_TOT} </Typography>
             </Card>
-            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
-                <Typography level="h4">Security: </Typography>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="soft" sx={{margin:2}}>
+                <Typography level="h4">Security: {staffing20_21.SCH_FTESECURITY_LEO + staffing20_21.SCH_FTESECURITY_GUA} </Typography>
             </Card>
-            <Card className="schoolDataContainer" color={otherCardColor} variant="solid" sx={{margin:2}}>
-                <Typography level="h4">Services: Counselors, Nurses, Psychologists, Social Workers  </Typography>
+            <Card className="schoolDataContainer" color={otherCardColor} variant="soft" sx={{margin:2}}>
+                <Typography level="h4">Services: {staffing20_21.SCH_FTECOUNSELORS + staffing20_21.SCH_FTESERVICES_NUR + staffing20_21.SCH_FTESERVICES_PSY + staffing20_21.SCH_FTESERVICES_SOC}  </Typography>
             </Card>
         </Sheet>
     )
