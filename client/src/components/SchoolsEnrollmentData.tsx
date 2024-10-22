@@ -35,26 +35,39 @@ function SchoolsEnrollmentData({school}) {
         cardColor = "neutral"
     }
 
-    return (
-        <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10, padding:2}}>
-            <Typography level="h2">Enrollment </Typography>
-            <Card className="schoolDataContainer" color={cardColor} variant="solid" sx={{margin:2}}>
-                <Typography level="h4">Enrollment since the Pandemic: {enrollment22_23.TOTAL - enrollment19_20.TOTAL} students </Typography>
-            </Card>
-            <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
-                <Typography level="h4">2022-23 Enrollment: {enrollment22_23.TOTAL} students </Typography>
-            </Card>
-            <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
-                <Typography level="h4">2021-22 Enrollment: {enrollment21_22.TOTAL} students </Typography>
-            </Card>
-            <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
-                <Typography level="h4">2020-21 Enrollment: {enrollment20_21.TOTAL} students </Typography>
-            </Card>
-            <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
-                <Typography level="h4">2019-20 Enrollment: {enrollment19_20.TOTAL} students </Typography>
-            </Card>
-        </Sheet>
-    )
+    let enrollmentSincePandemic
+
+    if (enrollment22_23.TOTAL < 0 || enrollment19_20.TOTAL < 0) {
+        enrollmentSincePandemic = "Could not calculate due to missing data"
+    }
+    else {
+        enrollmentSincePandemic = enrollment22_23.TOTAL - enrollment19_20.TOTAL
+    }
+
+
+    if (school.annual_enrollment.length > 0) {
+        return (
+            <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10, padding:2}}>
+                <Typography level="h2">Enrollment </Typography>
+                <Card className="schoolDataContainer" color={cardColor} variant="solid" sx={{margin:2}}>
+                    <Typography level="h4">Enrollment since the Pandemic: {enrollmentSincePandemic} students </Typography>
+                </Card>
+                <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
+                    <Typography level="h4">2022-23 Enrollment: {enrollment22_23.TOTAL} students </Typography>
+                </Card>
+                <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
+                    <Typography level="h4">2021-22 Enrollment: {enrollment21_22.TOTAL} students </Typography>
+                </Card>
+                <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
+                    <Typography level="h4">2020-21 Enrollment: {enrollment20_21.TOTAL} students </Typography>
+                </Card>
+                <Card className="schoolDataContainer" color={cardColor} variant="soft" sx={{margin:2}}>
+                    <Typography level="h4">2019-20 Enrollment: {enrollment19_20.TOTAL} students </Typography>
+                </Card>
+            </Sheet>
+        )
+    }
+
 
 }
 
