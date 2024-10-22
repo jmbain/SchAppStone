@@ -10,10 +10,6 @@ function StudentsPage() {
     
     return (
         <div>
-            <br className="navbreak"></br>
-            <br className="navbreak"></br>
-            <NavigationMenu />
-            <br className="navbreak"></br>
             <Sheet
                 variant="soft"
                 color="neutral"

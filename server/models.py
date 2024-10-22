@@ -63,8 +63,19 @@ class School(db.Model, SerializerMixin):
     annual_enrollment = db.relationship('Enrollment', back_populates="school")
     support_staff = db.relationship("SupportStaff", back_populates="school")
     offenses = db.relationship("Offenses", back_populates="school")
+    saved_school = db.relationship("SavedSchools", back_populates="school")
     # user = db.relationship('User', back_populates="school")
-    serialize_rules = ['-applications', '-annual_enrollment.school', '-support_staff.school'] 
+    serialize_rules = ['-applications', '-annual_enrollment.school', '-support_staff.school', '-saved_schools.school'] 
+
+class SavedSchools(db.Model, SerializerMixin):
+    __tablename__ = 'saved_schools'
+
+    id = db.Column(db.Integer, primary_key=True)
+    NCESSCH = db.Column(db.Integer, db.ForeignKey("schools.NCESSCH"))
+
+    #relationships
+    school = db.relationship('School', back_populates="saved_school")
+    serialize_rules = ['-school.saved_school'] 
 
 class Enrollment(db.Model, SerializerMixin):
     __tablename__ = 'annual_enrollment'

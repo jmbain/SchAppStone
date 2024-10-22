@@ -1,6 +1,6 @@
 // Imports (e.g. SchoolCard, SchoolList...)
-import NavigationMenu from "./NavigationMenu";
-import { Sheet, Card, Typography } from "@mui/joy";
+
+import { Sheet, Typography } from "@mui/joy";
 import UserCard from "./UserProfile";
 
 function UserPage() {
@@ -9,10 +9,6 @@ function UserPage() {
     
     return (
         <div>
-            <br className="navbreak"></br>
-            <br className="navbreak"></br>
-            <NavigationMenu />
-            <br className="navbreak"></br>
             <Sheet
                 variant="soft"
                 color="neutral"

@@ -5,10 +5,6 @@ import { Sheet, Typography, Card } from "@mui/joy";
 function ApplicationsPage() {
     return (
         <div>
-            <br className="navbreak"></br>
-            <br className="navbreak"></br>
-            <NavigationMenu />
-            <br className="navbreak"></br>
             <Sheet
                 variant="outlined"
                 color="primary"

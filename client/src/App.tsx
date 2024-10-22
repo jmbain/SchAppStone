@@ -8,6 +8,7 @@ import './App.css'
 //JB Imports...
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // Joy UI imports
 import '@fontsource/inter'
@@ -22,6 +23,8 @@ import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import React from 'react'; // also added this in step 9 below
+import NavigationMenu from './components/NavigationMenu';
+
 
 //Imports for MUI and Joy UI that allow for mixing the styles of both
 import {
@@ -82,6 +85,12 @@ function ModeToggle() {
 
 function App() {
   // const [count, setCount] = useState(0)
+  
+  // useEffect(() => {
+  //   setSavedSchools([1,2,3])
+  // },[])
+
+  const [savedSchools, setSavedSchools] = useState([])
 
   return (
     <MaterialCssVarsProvider theme={{ [THEME_ID]: materialTheme }}>
@@ -89,8 +98,13 @@ function App() {
         <div className="appContainer">
           <Header/>
           <ModeToggle />
+          <br></br>
+          <br></br>
+          <NavigationMenu />
+          <br></br>
           <Outlet context={{
-
+              savedSchools: savedSchools,
+              setSavedSchools: setSavedSchools,
           }}/>
         </div>
       </JoyCssVarsProvider>

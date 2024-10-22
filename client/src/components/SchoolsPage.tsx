@@ -1,6 +1,5 @@
 // Imports (e.g. SchoolCard, SchoolList...)
-import NavigationMenu from "./NavigationMenu";
-import { Sheet, Typography, Card } from "@mui/joy";
+import { Sheet, Typography } from "@mui/joy";
 import { useState, useEffect } from "react";
 
 //Data table and pagination imports
@@ -43,10 +42,6 @@ function SchoolsPage() {
     
     return (
         <div>
-            <br className="navbreak"></br>
-            <br className="navbreak"></br>
-            <NavigationMenu />
-            <br className="navbreak"></br>
             <Sheet
                 variant="outlined"
                 color="primary"

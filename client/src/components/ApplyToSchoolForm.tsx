@@ -13,7 +13,6 @@ function ApplyToSchoolForm() {
   
     return (
     <Stack spacing={2}>
-      <NavigationMenu/>
       <Stack spacing={2}>
         <Input
           placeholder="Type in here…"

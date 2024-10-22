@@ -15,7 +15,7 @@ import SchoolsEnrollmentData from './SchoolsEnrollmentData';
 import SchoolsStaffData from "./SchoolsStaffData";
 import SchoolOffensesData from './SchoolsOffensesData';
 
-
+import { useOutletContext } from "react-router-dom";
 
 // const Item = styled(Sheet)(({ theme }) => ({
 //     backgroundColor: '#fff',
@@ -39,6 +39,10 @@ function SchoolProfile() {
         //set the school type
     }
 
+    // type savedSchools {
+    //     //array type...
+    // }
+
     useEffect(() => {
         fetch(`/api/schools/${id}`)
         .then(r => {
@@ -48,13 +52,44 @@ function SchoolProfile() {
         })
     },[])
 
+    const {savedSchools, setSavedSchools} = useOutletContext()
+
+    function handleSaveClick() {
+        console.log("Saved!")
+        // if (savedSchools.length === 0)
+        setSavedSchools([2,3,4])
+    }
+
+    function handleApplyClick() {
+        console.log("Applied!")
+    }
+    console.log(savedSchools)
+
+    // revisit, saved schools can be a table in the db...
+    // function handleSubmit(event) {
+    //     event.preventDefault()
+    //     fetch('/api/pets', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(formData)
+    //     })
+    //     .then(resp => {
+    //       if (resp.ok) {
+    //         return resp.json()
+    //       } else {
+    //         return Promise.reject(resp)
+    //       }
+    //     })
+    //     .then(data => console.log(data))
+    //     .catch(resp => resp.json())
+    //     .then(errorData => setError(errorData))
+    //   }
+
     if(school!==null) {
         return(
             <div>
-                <br></br>
-                <br></br>
-                <NavigationMenu/>
-                <br></br>
                 <br></br>
                 <Box sx={{ width: 1 }}>
                     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(16, 1fr)', gridTemplateRows: 'auto', gap: 2, minWidth: 800 }}>
@@ -71,8 +106,8 @@ function SchoolProfile() {
                             <SchoolOffensesData school={school}/>
                         </Box>
                         <Box sx={{ gridColumn: 'span 15'}} >
-                            <Button sx={{margin:5}}>Save For Later</Button>
-                            <Button variant="solid" sx={{margin:5}}>Apply Now </Button>
+                            <Button sx={{margin:5}} onClick={handleSaveClick}>Save School</Button>
+                            <Button variant="solid" sx={{margin:5}} onClick={handleApplyClick}>Apply Now </Button>
                         </Box>
                     </Box>
                 </Box>
