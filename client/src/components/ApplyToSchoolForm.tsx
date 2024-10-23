@@ -4,71 +4,41 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
 import Stack from '@mui/joy/Stack';
-import InfoOutlined from '@mui/icons-material/InfoOutlined';
-import NavigationMenu from './NavigationMenu';
+// import InfoOutlined from '@mui/icons-material/InfoOutlined';
+import { Button } from '@mui/joy';
 
+import Select from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
 
 function ApplyToSchoolForm() {
   
   
     return (
     <Stack spacing={2}>
-      <Stack spacing={2}>
-        <Input
-          placeholder="Type in here…"
-          sx={{
-            '&::before': {
-              border: '1.5px solid var(--Input-focusedHighlight)',
-              transform: 'scaleX(0)',
-              left: '2.5px',
-              right: '2.5px',
-              bottom: 0,
-              top: 'unset',
-              transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
-              borderRadius: 0,
-              borderBottomLeftRadius: '64px 20px',
-              borderBottomRightRadius: '64px 20px',
-            },
-            '&:focus-within::before': {
-              transform: 'scaleX(1)',
-            },
-          }}
-        />
-        <Input
-          placeholder="Type in here…"
-          variant="soft"
-          sx={{
-            '--Input-radius': '0px',
-            borderBottom: '2px solid',
-            borderColor: 'neutral.outlinedBorder',
-            '&:hover': {
-              borderColor: 'neutral.outlinedHoverBorder',
-            },
-            '&::before': {
-              border: '1px solid var(--Input-focusedHighlight)',
-              transform: 'scaleX(0)',
-              left: 0,
-              right: 0,
-              bottom: '-2px',
-              top: 'unset',
-              transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
-              borderRadius: 0,
-            },
-            '&:focus-within::before': {
-              transform: 'scaleX(1)',
-            },
-          }}
-        />
-      </Stack>
-
-      <Input placeholder="Type in here…" error defaultValue="Oh no, error found!" />
+      <FormLabel>Select a School</FormLabel>
+      <Select defaultValue="placeholder">
+        <Option value="placeholder">Select a school...</Option>
+        <Option value="DOLGEVILLE ELEMENTARY SCHOOL">DOLGEVILLE ELEMENTARY SCHOOL</Option>
+        <Option value="JAMES A GREEN JUNIOR-SENIOR HIGH SCHOOL">JAMES A GREEN JUNIOR-SENIOR HIGH SCHOOL</Option>
+        <Option value="MOHONASEN SENIOR HIGH SCHOOL">MOHONASEN SENIOR HIGH SCHOOL</Option>
+        <Option value="BELLPORT SENIOR HIGH SCHOOL">BELLPORT SENIOR HIGH SCHOOL</Option>
+      </Select>
+      <FormLabel>Select a Student</FormLabel>
+      <Select defaultValue="placeholder">
+        <Option value="placeholder">Select a student...</Option>
+        <Option value="student1">Student 1</Option>
+        <Option value="student2">Student 2</Option>
+      </Select>
+      {/* <Input placeholder="Type in here…" error defaultValue="Oh no, error found!" /> */}
       <FormControl error>
-        <FormLabel>Label</FormLabel>
-        <Input placeholder="Type in here…" defaultValue="Oh no, error found!" />
+        <FormLabel>Type your name to sign</FormLabel>
+        <Input placeholder="Type in here…" color='neutral' />
         <FormHelperText>
-          <InfoOutlined />
-          Opps! something is wrong.
+          {/* <InfoOutlined />
+          Oops! something is wrong. */}
         </FormHelperText>
+        <Button>Submit Application!
+        </Button>
       </FormControl>
     </Stack>
   );

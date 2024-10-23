@@ -54,14 +54,14 @@ function SchoolsStaffData({school}) {
         ratioCardValue = enrollment22_23.STUTERATIO
     }
 
-    let otherCardColor = "warning"
+    let otherCardColor = "neutral"
     // console.log(school.support_staff.length)
 
     if (school.support_staff.length > 0) {
         return (
-            <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10, padding:2}}>
+            <Sheet className="schoolProfileContainer" sx={{gap:25, borderRadius:10, padding:2}} variant="solid" color={ratioCardColor}>
                 <Typography level="h2">School Staffing</Typography>
-                <Card className="schoolDataContainer" color={ratioCardColor} variant="solid" sx={{margin:2}}>
+                <Card className="schoolDataContainer" color={ratioCardColor} variant="soft" sx={{margin:2}}>
                     <Typography level="h4">Student to Staff Ratio: {ratioCardValue} </Typography>
                 </Card>
                 <Card className="schoolDataContainer" color={otherCardColor} variant="soft" sx={{margin:2}}>

@@ -1,7 +1,6 @@
 // Imports (e.g. SchoolCard, SchoolList...)
-import NavigationMenu from "./NavigationMenu";
 import { Sheet, Typography, Card } from "@mui/joy";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function MySchoolsPage() {

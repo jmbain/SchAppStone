@@ -26,7 +26,9 @@ function SchoolsPage() {
         { field: 'SCH_NAME', headerName: 'School Name', width: 400 },
         { field: 'SCHOOL_LEVEL', headerName: 'Level', width: 100 },
         { field: 'SCHOOL_TYPE_TEXT', headerName: 'Type', width: 150 },
-        { field: 'LCITY', headerName: 'City', width: 200 }
+        { field: 'LCITY', headerName: 'City', width: 200 },
+        { field: 'CHARTER_TEXT', headerName: "Charter?", width: 100},
+        { field: 'VIRTUAL', headerName: "Virtual?", width: 100}
         // {
         //   field: 'fullName',
         //   headerName: 'Full name',

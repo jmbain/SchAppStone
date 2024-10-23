@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 // import { styled } from '@mui/joy/styles';
 // import Sheet from '@mui/joy/Sheet';
-import NavigationMenu from './NavigationMenu';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 
