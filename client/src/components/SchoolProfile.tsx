@@ -62,7 +62,7 @@ function SchoolProfile() {
     function handleApplyClick() {
         console.log("Applied!")
     }
-    console.log(savedSchools)
+    // console.log(savedSchools)
 
     // revisit, saved schools can be a table in the db...
     // function handleSubmit(event) {

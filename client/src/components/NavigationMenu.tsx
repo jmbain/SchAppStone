@@ -335,8 +335,8 @@ const AdmissionsMenu = React.forwardRef(
                   href="/schools">
                   School Explorer
                 </ListItemButton>
-              {/* </ListItem>
-              <ListItem
+               </ListItem>
+              {/*<ListItem
                 role="none"
                 endAction={
                   <IconButton variant="outlined" color="neutral" size="sm">
@@ -346,13 +346,13 @@ const AdmissionsMenu = React.forwardRef(
               >
                 <ListItemButton role="menuitem" {...getTargetProps(2)}>
                   Favorites
-                </ListItemButton> */}
+                </ListItemButton> 
               </ListItem>
               <ListItem role="none">
                 <ListItemButton role="menuitem" {...getTargetProps(1)}>
                   School Stats
                 </ListItemButton>
-              </ListItem>
+              </ListItem> */}
             </List>
           </Popper>
         </div>
@@ -390,17 +390,6 @@ function NavigationMenu() {
           </ListItemButton>
         </ListItem>
         <ListItem role="none">
-          <AboutMenu
-            onMouseEnter={() => {
-              setActiveIndex(1);
-              targets[1].focus();
-            }}
-            focusNext={focusNext}
-            focusPrevious={focusPrevious}
-            {...getTargetProps(1)}
-          />
-        </ListItem>
-        <ListItem role="none">
           <AdmissionsMenu
             onMouseEnter={() => {
               setActiveIndex(2);
@@ -409,6 +398,17 @@ function NavigationMenu() {
             focusNext={focusNext}
             focusPrevious={focusPrevious}
             {...getTargetProps(2)}
+          />
+        </ListItem>
+        <ListItem role="none">
+          <AboutMenu
+            onMouseEnter={() => {
+              setActiveIndex(1);
+              targets[1].focus();
+            }}
+            focusNext={focusNext}
+            focusPrevious={focusPrevious}
+            {...getTargetProps(1)}
           />
         </ListItem>
       </List>

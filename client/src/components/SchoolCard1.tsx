@@ -7,7 +7,10 @@ import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 
-function UserCard() {
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+
+function SchoolCard1() {
   
   
     return (
@@ -16,6 +19,8 @@ function UserCard() {
         width: '96%',
         position: 'relative',
         overflow: { xs: 'auto', sm: 'initial' },
+        marginBottom:2,
+        marginTop:2
       }}
     >
       <Box
@@ -74,14 +79,14 @@ function UserCard() {
         </AspectRatio>
         <CardContent>
           <Typography sx={{ fontSize: 'xl', fontWeight: 'lg' }}>
-            Parent Account
+            School Name
           </Typography>
           <Typography
             level="body-sm"
             textColor="text.tertiary"
             sx={{ fontWeight: 'lg' }}
           >
-            Active since 10/3/2024
+            City, State
           </Typography>
           <Sheet
             sx={{
@@ -96,29 +101,29 @@ function UserCard() {
           >
             <div>
               <Typography level="body-xs" sx={{ fontWeight: 'lg' }}>
-                Schools Saved
+                Enrollment
               </Typography>
-              <Typography sx={{ fontWeight: 'lg' }}>34</Typography>
+              <Typography sx={{ fontWeight: 'lg' }}>  <CheckIcon color="success"/>  </Typography>
             </div>
             <div>
               <Typography level="body-xs" sx={{ fontWeight: 'lg' }}>
-                School Applications
+                Staffing
               </Typography>
-              <Typography sx={{ fontWeight: 'lg' }}>980</Typography>
+              <Typography sx={{ fontWeight: 'lg' }}>  <CloseIcon color="error"/>  </Typography>
             </div>
             <div>
               <Typography level="body-xs" sx={{ fontWeight: 'lg' }}>
-                Acceptances
+                Safety
               </Typography>
-              <Typography sx={{ fontWeight: 'lg' }}>4</Typography>
+              <Typography sx={{ fontWeight: 'lg' }}>  <CheckIcon color="success"/>  </Typography>
             </div>
           </Sheet>
           <Box sx={{ display: 'flex', gap: 1.5, '& > button': { flex: 1 } }}>
             <Button variant="outlined" color="neutral">
-              Edit Parent Info
+              More Info
             </Button>
             <Button variant="solid" color="primary">
-              My Activity
+              Apply
             </Button>
           </Box>
         </CardContent>
@@ -127,4 +132,4 @@ function UserCard() {
   );
 }
 
-export default UserCard;
+export default SchoolCard1;

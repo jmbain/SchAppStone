@@ -14,7 +14,7 @@ function UserPage() {
                 color="neutral"
                 sx={{
                     p: 3,
-                    width: 500,
+                    width: 750,
                     boxShadow: 'md',
                     borderRadius: 'sm',
                 }}
